@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<library> 
+	<Books Category="Technical Books"> 
+		<ISBN13>978-0764588457</ISBN13>
+		<Title>XML For Dummies</Title> 
+		<Author>Lucinda Dykes</Author>
+	</Books>
+	<Books Category="Technical Books"> 
+		<ISBN13> 978-0077072001> </ISBN13>
+		<Title>Modula-2 : In Science and Engineering</Title> 
+		<Author>M.M. Novak</Author>
+	</Books> 
+	<Books Category="Cookery Books"> 
+		<ISBN13>978-0718187767</ISBN13> 
+		<Title>Veg</Title> 
+		<Author>Jamie Oliver</Author>
+	</Books>  
+	<Books Category="Cookery Books">  
+		<ISBN13>978-0563493648</ISBN13> 
+		<Title>Delia's Vegetarian Collection</Title> 
+		<Author>Delia Smith</Author>
+	</Books>  
+</library> 
