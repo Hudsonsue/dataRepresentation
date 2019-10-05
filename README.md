@@ -1,1 +1,1 @@
-# dataRepresentation - reporitory for course work for module Data Te[resentation]
+# dataRepresentation - repository for course work for module Data representation
