@@ -1,7 +1,7 @@
 import requests
 import csv
 from bs4 import BeautifulSoup
-url = "https://www.myhome.ie/residential/galway/property-for-sale?page=1"
+url = "https://www.myhome.ie/residential/mayo/property-for-sale?page=1"
 page = requests.get(url)
 
 soup = BeautifulSoup(page.content, 'html.parser')
