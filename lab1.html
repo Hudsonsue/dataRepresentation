@@ -1,11 +1,15 @@
 <html>
     <head>
-        <title> view Cars</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- this section contains the title and also bootstrap location -->
+        <title> View Cars</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
     </head>
+	
     <body>
+	<!-- this section contains the header and the create button top of page, NON FUNCTIONING BUTTON AT PRESENT!! -->
         <h1>Cars</h1>
         <div> <button>Create</button></div>
+	<!-- this section creates the table of cars and associated values -->	
         <div>
             <table class="table">
                 <tr>
@@ -27,8 +31,8 @@
                 </tr>
                 <tr>
                     <td>12 G 123</td>
-                    <td>Fait</td>
-                    <td>Punto</td>
+                    <td>Fiat</td>
+                    <td>punto</td>
                     <td>12</td>
                     <td><button>Update</button></td>
                     <td><button>Delete</button></td>
@@ -46,8 +50,10 @@
     
             </table>
         </div>
+	<!-- span used as later on when using javascript will only see one - e.g create a car or update car -->
+	<!-- create input boxes for reg, make, model, price and buttons for Create & Update, also using Span to find with JS -->
         <div>
-                <h2><span>Create a</span> <span>update</span> Car</h2>
+		        <h2><span>Create a</span> <span>update</span> Car</h2>
                 Reg <input type="text" name="reg"/> <br/>
                 Make <select name="make">
                         <option value="Ford">Ford</option>
