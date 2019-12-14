@@ -7,7 +7,7 @@ app = Flask(__name__,
 
 cars = [
     {
-        "reg":"181 G 1234",
+        "reg":"141 G 1234",
         "make":"Ford",
         "model":"Modeo",
         "price":18000
