@@ -1,111 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <title> Menu</title>
+<html>
+    <head>
+        <title> view Books</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-   
-
-   
-	<style>
-
-		* {
-		  box-sizing: border-box;
-		}
-		
-		/* body style - style the overall body style*/
-		body {
-		  background-color: lightcyan;
-		  font-family: Sans Serif, Helvetica;
-		}
-
-		/* Style the header area of web page */
-		.header {
-		width:100%;
-			float:none;
-			background-color:lightcyan;
-			padding: 10px;
-			text-align: center;
-			width:100%
-			font-size: 55px;
-			margin: auto;
-			
-		}
-
-
-
-		/* BUTTON STYLING - buttons for navigation bar and other selections - including transitions when hovered over*/		.button{
-			float:left;
-			appearance: button;
-			display: block-align;
-			border: solid;
-			border-width: 10px;
-			padding: 15px 32px;
-			text-align: center;
-			text-decoration: none;
-			font-size: 16px;
-			font-style:sans serif
-			font-color: green;
-		}
-		
-	
-		
-		
-		/* default button appearance - lightcyan with green text */	
-		.button {
-		  text-decoration: none;
-		  background-color: lightcyan; 
-		  color: green; 
-		  border-width: 10px;
-		  border: 25px;
-		}
-		
-		/* upon hover button appears as navy with an green border and text */
-		.button:hover {
-		  text-decoration: none;
-		  background-color: mint green;
-		  border: solid;
-		  border-width: 5px;
-		  color: green;
-		}
-		
-		
-	
-		
-	.greentext {
-	background-color: mint;
-	color: green;
-}
-
-	</style>
-</head>
-<body>
-
-<!-- this section contains the header which is an image-->
-<div class="header" >
-
-<img style="border:5px solid green" src ="images/Basil & Spice.png" alt = "logo"  title ="logo" >	
-
-
-</div>	
-<!-- the navigation buttons for the website styled using the class button-->
-	<div>
-		<a href="home.html" class="button">Basil & Spice Homepage</a>
-		<a href="aboutgalway.html" class="button">Galway pics & plots</a>
-		<a href="menu.html" class="button">Staff Login</a>
-		<a href="order.html" class="button">o</a>
-		<br><br>	 
-	</div >	
-
-	<div>
-	<br>
-        <h1 class="greentext" style="text-align: center" > Menu Maintenance </h1>
-        <div> <button id="showCreateButton" class="button"onclick="showCreate()">Create New Item</button></div>
+    </head>
+    <body>
+        <h1>Menus</h1>
+        <div> <button id="showCreateButton" onclick="showCreate()">Create</button></div>
         <div>
             <table class="table" id="menuTable">
                 <tr>
@@ -113,35 +15,25 @@
                         <th>Item</th>
                         <th>About</th>
                         <th>Price</th>
-                        <th>Update </th>
+                        <th>Update</th>
                         <th>Delete</th>
                 </tr>
                 
             </table>
-        </div>	
-	</div>	
-	<fieldset style="width:50%">
-	
-	<form>
-		
-		
-		<fieldset>
-		<form>
-	    <div id='createUpdateForm' style="display: none">
-                <h2class="greentext" ><span id="createLabel">Create a new item for the </span> <span id="updateLabel">Update</span> Menu</h2>
+        </div>
+        <div id='createUpdateForm' style="display: none">
+
+                <h2><span id="createLabel">Create a</span> <span id="updateLabel">update</span> menu</h2>
                 <input type="hidden" name="id"/>
 				<br>
-                Item <input type="text" name="Item" required /><br/>
+                Item <input type="text" name="Item" /><br/>
                 About <input type="text" name="About"/> <br/>
-                Price <input type="text" name="Price"/> <br/></br>
-                <span><button id="doCreateButton" class="button" onclick="doCreate()">Create</button></span>
-                <span><button id="doUpdateButton" class="button"onclick="doUpdate()">Update</button></span>
+                Price <input type="number" name="Price"/> <br/></br>
+                <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
+                <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
+				<br>
         </div>
-		 
-	</form>
-	</fieldset>
-	
-</body>
+    </body>
     <script>
     function showCreate(){
         document.getElementById('showCreateButton').style.display="none"
@@ -222,7 +114,7 @@
         var cell5 = rowElement.insertCell(4);
         cell5.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
         var cell6 = rowElement.insertCell(5);
-        cell6.innerHTML = '<button onclick=doDelete(this)>Delete</button>'
+        cell6.innerHTML = '<button onclick=doDelete(this)>delete</button>'
 
     }
 
@@ -269,7 +161,7 @@
     }
     function getAllAjax(){
         $.ajax({
-            "url": "http://127.0.0.1:5000/menu",
+            "url": "http://127.0.0.1:5000/menus",
             "method":"GET",
             "data":"",
             "dataType": "JSON",
@@ -290,7 +182,7 @@
         //var car = {"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3000}
         console.log(JSON.stringify(menu));
         $.ajax({
-            "url": "http://127.0.0.1:5000/menu",
+            "url": "http://127.0.0.1:5000/menus",
             "method":"POST",
             "data":JSON.stringify(menu),
             "dataType": "JSON",
@@ -311,7 +203,7 @@
         //var car = {"reg":"12 D 1234","price":8000}
         console.log(JSON.stringify(menu));
         $.ajax({
-            "url": "http://127.0.0.1:5000/menu/"+encodeURI(menu.id),
+            "url": "http://127.0.0.1:5000/menus/"+encodeURI(menu.id),
             "method":"PUT",
             "data":JSON.stringify(menu),
             "dataType": "JSON",
@@ -329,7 +221,7 @@
         
         //console.log(JSON.stringify('deleting '+id));
         $.ajax({
-            "url": "http://127.0.0.1:5000/menu/"+encodeURI(id),
+            "url": "http://127.0.0.1:5000/menus/"+encodeURI(id),
             "method":"DELETE",
             "data":"",
             "dataType": "JSON",
@@ -345,7 +237,7 @@
     }
     getAllAjax();
   
- 
 
-</script>
+    
+    </script>
 </html>

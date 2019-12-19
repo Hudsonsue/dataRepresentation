@@ -1,19 +1,20 @@
-import pymysql
-import pymysql.cursors
-class MenuDAO:
+import mysql.connector
+class BookDAO:
     db=""
     def __init__(self): 
-        self.db = pymysql.connect(
+        self.db = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="root",
+        password="",
+        #user="datarep",  # this is the user name on my mac
+        #passwd="password" # for my mac
         database="datarepresentation"
-		)
-		
-		
+        )
+    
+            
     def create(self, values):
         cursor = self.db.cursor()
-        sql="insert into menu (Item, About, Price) values (%s,%s,%s)"
+        sql="insert into book (title,author, price) values (%s,%s,%s)"
         cursor.execute(sql, values)
 
         self.db.commit()
@@ -21,7 +22,7 @@ class MenuDAO:
 
     def getAll(self):
         cursor = self.db.cursor()
-        sql="select * from menu"
+        sql="select * from book"
         cursor.execute(sql)
         results = cursor.fetchall()
         returnArray = []
@@ -30,12 +31,11 @@ class MenuDAO:
             print(result)
             returnArray.append(self.convertToDictionary(result))
 
-
         return returnArray
 
     def findByID(self, id):
         cursor = self.db.cursor()
-        sql="select * from menu where id = %s"
+        sql="select * from book where id = %s"
         values = (id,)
 
         cursor.execute(sql, values)
@@ -44,13 +44,12 @@ class MenuDAO:
 
     def update(self, values):
         cursor = self.db.cursor()
-        sql="update menu set Item= %s,About=%s, Price=%s  where id = %s"
+        sql="update book set title= %s,author=%s, price=%s  where id = %s"
         cursor.execute(sql, values)
         self.db.commit()
-		
     def delete(self, id):
         cursor = self.db.cursor()
-        sql="delete from menu where id = %s"
+        sql="delete from book where id = %s"
         values = (id,)
 
         cursor.execute(sql, values)
@@ -59,7 +58,7 @@ class MenuDAO:
         print("delete done")
 
     def convertToDictionary(self, result):
-        colnames=['id','Item','About', "Price"]
+        colnames=['id','Title','Author', "Price"]
         item = {}
         
         if result:
@@ -69,4 +68,4 @@ class MenuDAO:
         
         return item
         
-menuDAO = MenuDAO()
+bookDAO = BookDAO()
